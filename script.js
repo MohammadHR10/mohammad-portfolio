@@ -92,23 +92,38 @@ resize();
 requestAnimationFrame(draw);
 
 const uploadedLetterUrls = new Map();
+const letterInput = document.querySelector("[data-letter-upload]");
+const letterList = document.querySelector("[data-letter-list]");
 
-document.querySelectorAll("[data-letter-upload]").forEach((input) => {
-  input.addEventListener("change", () => {
-    const key = input.dataset.letterUpload;
-    const file = input.files?.[0];
-    const preview = document.querySelector(`[data-preview-link="${key}"]`);
+function formatBytes(bytes) {
+  if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
 
-    if (!file || !preview) return;
+letterInput?.addEventListener("change", () => {
+  uploadedLetterUrls.forEach((url) => URL.revokeObjectURL(url));
+  uploadedLetterUrls.clear();
 
-    if (uploadedLetterUrls.has(key)) {
-      URL.revokeObjectURL(uploadedLetterUrls.get(key));
-    }
+  const files = Array.from(letterInput.files ?? []);
+  if (!letterList) return;
 
+  if (files.length === 0) {
+    letterList.innerHTML = '<span class="quiet-link">No files selected yet.</span>';
+    return;
+  }
+
+  letterList.innerHTML = "";
+
+  files.forEach((file, index) => {
     const url = URL.createObjectURL(file);
+    const key = `${index}-${file.name}`;
     uploadedLetterUrls.set(key, url);
-    preview.href = url;
-    preview.hidden = false;
-    preview.textContent = `Open selected file: ${file.name}`;
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noreferrer";
+    link.innerHTML = `<span>${file.name}</span><small>${formatBytes(file.size)}</small>`;
+    letterList.append(link);
   });
 });
