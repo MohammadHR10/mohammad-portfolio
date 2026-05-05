@@ -510,12 +510,18 @@ h3 {
   padding-top: clamp(8px, 3vw, 26px);
 }
 
-.upload-panel {
+.letter-list {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 24px;
-  align-items: center;
-  padding: clamp(24px, 4vw, 38px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.letter-proof {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  min-height: 260px;
+  padding: clamp(24px, 4vw, 34px);
   border: 1px solid var(--line);
   border-radius: 8px;
   background:
@@ -523,9 +529,8 @@ h3 {
     rgba(17, 21, 21, 0.88);
 }
 
-.upload-label {
+.letter-proof > span {
   display: block;
-  margin-bottom: 12px;
   color: var(--dim);
   font-family: "JetBrains Mono", monospace;
   font-size: 0.76rem;
@@ -533,73 +538,22 @@ h3 {
   text-transform: uppercase;
 }
 
-.upload-panel h3 {
+.letter-proof h3 {
   margin-bottom: 0;
   font-size: clamp(1.35rem, 2.8vw, 2rem);
+  line-height: 1.08;
 }
 
-.upload-panel p {
+.letter-proof p {
   max-width: 620px;
-  margin: 12px 0 0;
+  margin: 0;
   color: var(--muted);
   font-size: 1rem;
 }
 
-.upload-control {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  margin-top: 4px;
-  padding: 0 14px;
-  border: 1px solid rgba(94, 225, 197, 0.28);
-  border-radius: 8px;
-  color: var(--teal);
-  cursor: pointer;
-  font-weight: 800;
-}
-
-.upload-control.large {
-  min-width: min(100%, 280px);
-  min-height: 52px;
-  padding-inline: 20px;
-  background: rgba(94, 225, 197, 0.06);
-}
-
-.upload-control input {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-}
-
-.file-list {
-  grid-column: 1 / -1;
-  display: grid;
-  gap: 10px;
-  padding-top: 10px;
-}
-
-.file-list a {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 12px 14px;
-  border: 1px solid rgba(247, 243, 234, 0.1);
-  border-radius: 8px;
-  background: rgba(10, 14, 14, 0.42);
-  color: var(--amber);
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.file-list small {
-  color: var(--dim);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.72rem;
-  white-space: nowrap;
+.letter-proof .button {
+  width: fit-content;
+  margin-top: 8px;
 }
 
 .timeline {
@@ -673,7 +627,7 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .upload-panel {
+  .letter-list {
     grid-template-columns: 1fr;
   }
 
