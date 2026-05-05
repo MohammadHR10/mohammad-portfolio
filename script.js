@@ -90,3 +90,25 @@ window.addEventListener("pointerleave", () => {
 
 resize();
 requestAnimationFrame(draw);
+
+const uploadedLetterUrls = new Map();
+
+document.querySelectorAll("[data-letter-upload]").forEach((input) => {
+  input.addEventListener("change", () => {
+    const key = input.dataset.letterUpload;
+    const file = input.files?.[0];
+    const preview = document.querySelector(`[data-preview-link="${key}"]`);
+
+    if (!file || !preview) return;
+
+    if (uploadedLetterUrls.has(key)) {
+      URL.revokeObjectURL(uploadedLetterUrls.get(key));
+    }
+
+    const url = URL.createObjectURL(file);
+    uploadedLetterUrls.set(key, url);
+    preview.href = url;
+    preview.hidden = false;
+    preview.textContent = `Open selected file: ${file.name}`;
+  });
+});
