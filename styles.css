@@ -383,8 +383,26 @@ h3 {
   background: linear-gradient(135deg, rgba(241, 189, 87, 0.11), rgba(20, 24, 25, 0.76));
 }
 
+.project.routesync {
+  background:
+    linear-gradient(135deg, rgba(94, 225, 197, 0.12), rgba(20, 24, 25, 0.76)),
+    rgba(20, 24, 25, 0.72);
+}
+
+.project.launchdesh {
+  background:
+    linear-gradient(135deg, rgba(241, 189, 87, 0.12), rgba(20, 24, 25, 0.76)),
+    rgba(20, 24, 25, 0.72);
+}
+
 .project.research {
   background: linear-gradient(135deg, rgba(236, 127, 104, 0.1), rgba(20, 24, 25, 0.76));
+}
+
+.project.urop {
+  background:
+    linear-gradient(135deg, rgba(236, 127, 104, 0.1), rgba(94, 225, 197, 0.06)),
+    rgba(20, 24, 25, 0.72);
 }
 
 .project.stealth {
@@ -429,6 +447,56 @@ h3 {
   color: var(--dim);
   font-size: 0.94rem;
   font-weight: 700;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.media-grid.two-up {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.media-grid figure,
+.single-media {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(7, 11, 11, 0.54);
+}
+
+.media-grid img,
+.single-media img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.media-grid figure:nth-child(3) img {
+  object-fit: contain;
+  background: #f8fafc;
+}
+
+.media-grid figcaption,
+.single-media figcaption {
+  padding: 10px 12px 12px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.single-media {
+  max-width: 560px;
+  margin-top: 24px;
+}
+
+.single-media img {
+  height: 300px;
 }
 
 .capability-grid {
@@ -551,6 +619,23 @@ h3 {
   font-size: 1rem;
 }
 
+.letter-preview {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  max-height: 360px;
+  margin-top: 4px;
+  border: 1px solid rgba(247, 243, 234, 0.1);
+  border-radius: 8px;
+  background: rgba(7, 11, 11, 0.62);
+}
+
+.letter-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .letter-proof .button {
   width: fit-content;
   margin-top: 8px;
@@ -629,6 +714,20 @@ footer {
 
   .letter-list {
     grid-template-columns: 1fr;
+  }
+
+  .media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .media-grid.two-up {
+    grid-template-columns: 1fr;
+  }
+
+  .media-grid img,
+  .single-media img {
+    height: auto;
+    max-height: 420px;
   }
 
   .proof-strip div:nth-child(2),
