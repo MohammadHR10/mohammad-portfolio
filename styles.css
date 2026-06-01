@@ -251,9 +251,7 @@ h3 {
 
 .signal-topline,
 .project-kicker,
-.proof-strip span,
-.timeline span,
-.capability span {
+.proof-strip span {
   color: var(--dim);
   font-family: "JetBrains Mono", monospace;
   font-size: 0.78rem;
@@ -299,7 +297,6 @@ h3 {
   line-height: 1.35;
 }
 
-.capability p,
 .project p,
 .impact-list {
   color: var(--muted);
@@ -330,8 +327,6 @@ h3 {
 }
 
 .work-section,
-.capabilities,
-.story-section,
 .recommendations-section,
 .contact-section {
   padding: clamp(72px, 9vw, 112px) 0;
@@ -499,44 +494,21 @@ h3 {
   height: 300px;
 }
 
-.capability-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--line);
-}
-
-.capability {
-  min-height: 230px;
-  padding: 24px;
-  background: rgba(17, 21, 21, 0.88);
-}
-
-.capability h3 {
-  margin-top: 42px;
-  font-size: 1.25rem;
-}
-
 .credentials-section {
-  padding: clamp(8px, 3vw, 26px) 0 clamp(74px, 9vw, 112px);
+  padding: clamp(72px, 9vw, 112px) 0;
 }
 
 .credential-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--line);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
 
 .credential {
-  min-height: 140px;
+  min-height: 150px;
   padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
   background: rgba(17, 21, 21, 0.9);
 }
 
@@ -565,17 +537,6 @@ h3 {
   margin-right: 16px;
   text-decoration-color: rgba(94, 225, 197, 0.5);
   text-underline-offset: 5px;
-}
-
-.story-section {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(300px, 0.62fr);
-  gap: clamp(34px, 7vw, 76px);
-  align-items: start;
-}
-
-.recommendations-section {
-  padding-top: clamp(8px, 3vw, 26px);
 }
 
 .letter-list {
@@ -641,27 +602,6 @@ h3 {
   margin-top: 8px;
 }
 
-.timeline {
-  display: grid;
-  gap: 1px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--line);
-}
-
-.timeline div {
-  padding: 26px;
-  background: rgba(17, 21, 21, 0.88);
-}
-
-.timeline strong {
-  display: block;
-  margin-top: 10px;
-  font-size: 1.12rem;
-  line-height: 1.35;
-}
-
 .contact-section {
   border-top: 1px solid var(--line);
   text-align: center;
@@ -697,8 +637,7 @@ footer {
   }
 
   .hero,
-  .section-heading,
-  .story-section {
+  .section-heading {
     grid-template-columns: 1fr;
   }
 
@@ -707,8 +646,7 @@ footer {
     padding-top: 58px;
   }
 
-  .proof-strip,
-  .capability-grid {
+  .proof-strip {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -764,15 +702,12 @@ footer {
 
   .signal-panel,
   .project,
-  .capability,
-  .credential,
-  .timeline div {
+  .credential {
     padding: 22px;
   }
 
   .proof-strip,
   .credential-grid,
-  .capability-grid,
   .project {
     grid-template-columns: 1fr;
   }
